@@ -1,0 +1,11 @@
+<ng-container *ngIf="isRecordingSupported(); else noSupport">
+  <p>audio-recorder works!</p>
+  <img alt="record" class="icon record" src="/assets/record.svg" *ngIf="currentAction === 'inactive'" />
+  <img alt="play" class="icon play" src="/assets/play.svg" *ngIf="currentAction === 'inactive'" />
+  <img alt="stop" class="icon stop" src="/assets/stop.svg" *ngIf="currentAction === 'recording' || currentAction === 'playback'" />
+  <img alt="pause" class="icon pause" src="/assets/pause.svg" *ngIf="currentAction === 'playback' || currentAction === 'recording'" />
+</ng-container>
+
+<ng-template #noSupport>
+  <p>Audio recording through Web API not supported!</p>
+</ng-template>
